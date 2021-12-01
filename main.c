@@ -338,26 +338,26 @@ int main() {
     new++;
     time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
 
-    printf("|Verfahren|List|Zeit1|Zeit2|Zeit3|Durchschnitt|");
+    printf("|Verfahren|List|Zeit1|Zeit2|Zeit3|Durchschnitt|\n");
     new = 0;
-    printf("|Selection|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Selection|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Selection|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Insertion|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Insertion|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Insertion|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Shellsort|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Shellsort|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Shellsort|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Quicksort|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Quicksort|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Quicksort|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Mergesort|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Mergesort|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Mergesort|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Heapsort |Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Heapsort |MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
-    printf("|Heapsort |MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Selection|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Selection|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Selection|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Insertion|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Insertion|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Insertion|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Shellsort|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Shellsort|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Shellsort|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Quicksort|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Quicksort|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Quicksort|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Mergesort|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Mergesort|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Mergesort|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Heapsort |Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Heapsort |MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    printf("|Heapsort |MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
 
     return 0;
 }
