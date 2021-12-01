@@ -12,14 +12,14 @@ void randarray (){
         list[i] = rand();
     }
 }
-void maxmin (int startwert){
+void maxmin (){
     int j;
     for (int i = MAX; 0 < i; --i) {
         list[j] = i;
         ++j;
     }
 }
-void minmax (int startwert){
+void minmax (){
     for (int i = 0; i < MAX; ++i) {
         list[i] = i-1;
     }
@@ -165,6 +165,20 @@ int main() {
     srand((unsigned) time(&t));
     for (int i = 0; i < 3 ; ++i) {
         randarray();
+        start_t=clock();
+        selection(list,MAX);
+        ende_t=clock();
+        printf("Laufzeit %.5f Sekunden\n",(float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    for (int i = 0; i < 3 ; ++i) {
+        minmax();
+        start_t=clock();
+        selection(list,MAX);
+        ende_t=clock();
+        printf("Laufzeit %.5f Sekunden\n",(float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    for (int i = 0; i < 3 ; ++i) {
+        maxmin();
         start_t=clock();
         selection(list,MAX);
         ende_t=clock();
