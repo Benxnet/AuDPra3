@@ -154,14 +154,57 @@ void heapsort (int a[], int laenge)
     for (k = laenge; k >= 1; k--) a[k] = removeheap();
 }
 
+void ausgaben(int time[]){
+    char verfahren[6][10]={{"Selection\0"},
+                           {"Insertion\0"},
+                           {"Shellsort\0"},
+                           {"Quicksort\0"},
+                           {"Mergesort\0"},
+                           {"Heapsort \0"}};
+    char array[3][7]={{"Random\0"},
+                      {"MinMax\0"},
+                      {"MaxMin\0"}};
 
+    printf("|Verfahren| List |Zeit1|Zeit2|Zeit3|Schnitt|\n");
+    for (int i = 0; i < 18; ++i) {
+        printf("|%s|%s|%10i|%10i|%10i|%10i  |\n",verfahren[i/3],array[i%3],time[4*i],time[4*i+1],time[4*i+2],time[4*i+3]);
+    }
+}
 
+void sort() {
+    int pos = 0;
+    int list[MAX];
+    int time[6*12];
+    clock_t start_t, ende_t;
+    srand(0);
+    for (int i = 0; i < 6; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            for (int k = 0; k < 3; ++k) {
+                if(j%3 == 0) {randarray(list);}
+                if(j%3 == 1) {minmax(list);}
+                if(j%3 == 2) {maxmin(list);}
+                if(i==0){start_t = clock();selection(list,MAX);ende_t = clock();}
+                if(i==1){start_t = clock();insertion(list,MAX);ende_t = clock();}
+                if(i==2){start_t = clock();shellsort(list,MAX);ende_t = clock();}
+                if(i==3){start_t = clock();quicksort(list,0,1);ende_t = clock();}
+                if(i==4){start_t = clock();mergesort(list,0,MAX);ende_t = clock();}
+                if(i==5){start_t = clock();heapsort(list,MAX);ende_t = clock();}
+                time[pos] = ((float) (ende_t - start_t));
+                pos++;
+            }
+            time[pos] = (time[pos] + time[pos] + time[pos]) / 3;
+            pos++;
+        }
+    }
+    ausgaben(time);
+}
 
 
 
 
 int main() {
-    int list[MAX];
+    sort();
+    /*int list[MAX];
     float time[6*12];
     clock_t start_t, ende_t;
     time_t t;
@@ -171,7 +214,7 @@ int main() {
     for (int i = 0; i < 3 ; ++i) {
         randarray(list);
         start_t=clock();
-        selection(list,MAX);
+       // selection(list,MAX);
         ende_t=clock();
         time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
     }
@@ -180,7 +223,7 @@ int main() {
     for (int i = 0; i < 3 ; ++i) {
         minmax(list);
         start_t=clock();
-        selection(list,MAX);
+       // selection(list,MAX);
         ende_t=clock();
         time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
     }
@@ -189,7 +232,7 @@ int main() {
     for (int i = 0; i < 3 ; ++i) {
         maxmin(list);
         start_t=clock();
-        selection(list,MAX);
+        //selection(list,MAX);
         ende_t=clock();
         time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
     }
@@ -199,17 +242,16 @@ int main() {
     for (int i = 0; i < 3 ; ++i) {
         randarray(list);
         start_t=clock();
-        insertion(list,MAX);
+        //insertion(list,MAX);
         ende_t=clock();
         time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
     }
     new++;
     time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
-    new++;
     for (int i = 0; i < 3 ; ++i) {
         minmax(list);
         start_t=clock();
-        insertion(list,MAX);
+        //insertion(list,MAX);
         ende_t=clock();
         time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
     }
@@ -218,12 +260,13 @@ int main() {
     for (int i = 0; i < 3 ; ++i) {
         maxmin(list);
         start_t=clock();
-        insertion(list,MAX);
+        //insertion(list,MAX);
         ende_t=clock();
         time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
     }
     new++;
     time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+
     //shellsort
     for (int i = 0; i < 3 ; ++i) {
         randarray(list);
@@ -337,27 +380,7 @@ int main() {
     }
     new++;
     time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
-
-    printf("|Verfahren|List|Zeit1|Zeit2|Zeit3|Durchschnitt|\n");
-    new = 0;
-    printf("|Selection|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Selection|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Selection|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Insertion|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Insertion|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Insertion|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Shellsort|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Shellsort|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Shellsort|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Quicksort|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Quicksort|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Quicksort|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Mergesort|Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Mergesort|MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Mergesort|MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Heapsort |Random|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Heapsort |MinMax|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
-    printf("|Heapsort |MaxMin|%.3f|%.3f|%.3f|%.3f|\n",time[4*new],time[4*new+1],time[4*new+2],time[4*new+3]);new++;
+    */
 
     return 0;
 }
