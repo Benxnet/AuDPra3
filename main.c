@@ -4,24 +4,24 @@
 #define MAX 200000
 
 
-int list[MAX];
 
 
-void randarray (){
+
+void randarray (int a[]){
     for (int i = 0; i < MAX; ++i) {
-        list[i] = rand();
+        a[i] = rand();
     }
 }
-void maxmin (){
-    int j;
-    for (int i = MAX; 0 < i; --i) {
-        list[j] = i;
-        ++j;
+void maxmin (int a[]){
+    int j = MAX;
+    for (int i = 0; i<MAX ; ++i) {
+        a[i] = j;
+        j--;
     }
 }
-void minmax (){
+void minmax (int a[]){
     for (int i = 0; i < MAX; ++i) {
-        list[i] = i-1;
+        a[i] = i+1;
     }
 }
 
@@ -85,6 +85,7 @@ void quicksort (int a[], int l, int r)
         quicksort (a, i+1, r);
     }
 }
+
 
 int b[MAX+1];
 void mergesort (int a[], int l, int r)
@@ -160,29 +161,203 @@ void heapsort (int a[], int laenge)
 
 
 int main() {
+    int list[MAX];
+    float time[6*12];
     clock_t start_t, ende_t;
     time_t t;
-    srand((unsigned) time(&t));
+    srand(0);
+    int new = 0;
+    //Selection
     for (int i = 0; i < 3 ; ++i) {
-        randarray();
+        randarray(list);
         start_t=clock();
         selection(list,MAX);
         ende_t=clock();
-        printf("Laufzeit %.5f Sekunden\n",(float)(ende_t-start_t) / CLOCKS_PER_SEC);
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
     }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
     for (int i = 0; i < 3 ; ++i) {
-        minmax();
+        minmax(list);
         start_t=clock();
         selection(list,MAX);
         ende_t=clock();
-        printf("Laufzeit %.5f Sekunden\n",(float)(ende_t-start_t) / CLOCKS_PER_SEC);
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
     }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
     for (int i = 0; i < 3 ; ++i) {
-        maxmin();
+        maxmin(list);
         start_t=clock();
         selection(list,MAX);
         ende_t=clock();
-        printf("Laufzeit %.5f Sekunden\n",(float)(ende_t-start_t) / CLOCKS_PER_SEC);
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
     }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    //insertion
+    for (int i = 0; i < 3 ; ++i) {
+        randarray(list);
+        start_t=clock();
+        insertion(list,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    new++;
+    for (int i = 0; i < 3 ; ++i) {
+        minmax(list);
+        start_t=clock();
+        insertion(list,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    for (int i = 0; i < 3 ; ++i) {
+        maxmin(list);
+        start_t=clock();
+        insertion(list,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    //shellsort
+    for (int i = 0; i < 3 ; ++i) {
+        randarray(list);
+        start_t=clock();
+        shellsort(list,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    for (int i = 0; i < 3 ; ++i) {
+        minmax(list);
+        start_t=clock();
+        shellsort(list,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    for (int i = 0; i < 3 ; ++i) {
+        maxmin(list);
+        start_t=clock();
+        shellsort(list,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    //quicksort
+    for (int i = 0; i < 3 ; ++i) {
+        randarray(list);
+        start_t=clock();
+        quicksort(list,0,1);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    new++;
+    for (int i = 0; i < 3 ; ++i) {
+        minmax(list);
+        start_t=clock();
+        quicksort(list,0,1);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    for (int i = 0; i < 3 ; ++i) {
+        maxmin(list);
+        start_t=clock();
+        quicksort(list,0,1);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    //mergesort
+    for (int i = 0; i < 3 ; ++i) {
+        randarray(list);
+        start_t=clock();
+        mergesort(list,0,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    for (int i = 0; i < 3 ; ++i) {
+        minmax(list);
+        start_t=clock();
+        mergesort(list,0,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    for (int i = 0; i < 3 ; ++i) {
+        maxmin(list);
+        start_t=clock();
+        mergesort(list,0,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    //heapsort
+    for (int i = 0; i < 3 ; ++i) {
+        randarray(list);
+        start_t=clock();
+        heapsort(list,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    for (int i = 0; i < 3 ; ++i) {
+        minmax(list);
+        start_t=clock();
+        heapsort(list,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+    for (int i = 0; i < 3 ; ++i) {
+        maxmin(list);
+        start_t=clock();
+        heapsort(list,MAX);
+        ende_t=clock();
+        time[i+4*new]=((float)(ende_t-start_t) / CLOCKS_PER_SEC);
+    }
+    new++;
+    time[new*4-1]=(time[new*4-2]+time[new*4-3]+time[new*4-4])/3;
+
+    printf("|Verfahren|List|Zeit1|Zeit2|Zeit3|Durchschnitt|");
+    new = 0;
+    printf("|Selection|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Selection|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Selection|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Insertion|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Insertion|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Insertion|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Shellsort|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Shellsort|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Shellsort|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Quicksort|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Quicksort|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Quicksort|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Mergesort|Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Mergesort|MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Mergesort|MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Heapsort |Random|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Heapsort |MinMax|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+    printf("|Heapsort |MaxMin|%.3|%.3|%.3|%.3|\n",time[new],time[new+1],time[new+2]);new++;
+
     return 0;
 }
