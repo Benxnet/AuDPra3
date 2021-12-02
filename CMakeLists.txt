@@ -3,4 +3,4 @@ project(AuDPra3 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(AuDPra3 main.c)
+add_executable(AuDPra3 main.c sort.c sort.h)

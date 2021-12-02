@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "AuDPra3.exe.manifest"
   "AuDPra3.pdb"
   "CMakeFiles/AuDPra3.dir/main.c.obj"
+  "CMakeFiles/AuDPra3.dir/sort.c.obj"
   "libAuDPra3.dll.a"
 )
 

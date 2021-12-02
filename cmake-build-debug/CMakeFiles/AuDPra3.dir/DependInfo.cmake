@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/benxn/CLionProjects/AuDPra3/main.c" "C:/Users/benxn/CLionProjects/AuDPra3/cmake-build-debug/CMakeFiles/AuDPra3.dir/main.c.obj"
+  "C:/Users/benxn/CLionProjects/AuDPra3/sort.c" "C:/Users/benxn/CLionProjects/AuDPra3/cmake-build-debug/CMakeFiles/AuDPra3.dir/sort.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

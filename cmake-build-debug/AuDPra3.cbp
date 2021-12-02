@@ -77,6 +77,12 @@
 		<Unit filename="C:/Users/benxn/CLionProjects/AuDPra3/main.c">
 			<Option target="AuDPra3"/>
 		</Unit>
+		<Unit filename="C:/Users/benxn/CLionProjects/AuDPra3/sort.c">
+			<Option target="AuDPra3"/>
+		</Unit>
+		<Unit filename="C:/Users/benxn/CLionProjects/AuDPra3/sort.h">
+			<Option target="AuDPra3"/>
+		</Unit>
 		<Unit filename="C:/Users/benxn/CLionProjects/AuDPra3/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
