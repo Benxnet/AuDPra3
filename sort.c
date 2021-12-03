@@ -141,11 +141,11 @@ int removeheap()
     return v;
 }
 
-void heapsort (int a[], int laenge)
+void heapsort (int l[], int laenge)
 {
     int k;
 
-    for (k = 1; k <= laenge; k++) insert (a[k]);
-    for (k = laenge; k >= 1; k--) a[k] = removeheap();
+    for (k = 1; k <= laenge; k++) insert (l[k]);
+    for (k = laenge; k >= 1; k--) l[k] = removeheap();
 }
 

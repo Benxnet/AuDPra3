@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/benxn/CLionProjects/AuDPra3/main.c" "C:/Users/benxn/CLionProjects/AuDPra3/cmake-build-debug/CMakeFiles/AuDPra3.dir/main.c.obj"
-  "C:/Users/benxn/CLionProjects/AuDPra3/sort.c" "C:/Users/benxn/CLionProjects/AuDPra3/cmake-build-debug/CMakeFiles/AuDPra3.dir/sort.c.obj"
+  "C:/Users/benxn/CLionProjects/AuDPra3_7/main.c" "C:/Users/benxn/CLionProjects/AuDPra3_7/cmake-build-debug/CMakeFiles/AuDPra3.dir/main.c.obj"
+  "C:/Users/benxn/CLionProjects/AuDPra3_7/sort.c" "C:/Users/benxn/CLionProjects/AuDPra3_7/cmake-build-debug/CMakeFiles/AuDPra3.dir/sort.c.obj"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

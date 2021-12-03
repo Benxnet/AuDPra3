@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\AuDPra3.dir/objects.a
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe qc CMakeFiles\AuDPra3.dir/objects.a @CMakeFiles\AuDPra3.dir\objects1.rsp
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\AuDPra3.dir/objects.a -Wl,--no-whole-archive -o AuDPra3.exe -Wl,--out-implib,libAuDPra3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\AuDPra3.dir\linklibs.rsp
